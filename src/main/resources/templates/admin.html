@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add New Car</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Add New Car</h1>
+<form th:action="@{/admin/post/car}" th:object="${car}" method="post">
+    <div>
+        <label for="Model">Model:</label>
+        <input type="text" id="Model" name="Model" required>
+    </div>
+
+    <div>
+        <label for="Type">Type:</label>
+        <input type="text" id="Type" name="Type" required>
+    </div>
+    <div>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required>
+    </div>
+    <div>
+        <label for="Transmission">Transmission:</label>
+        <select id="Transmission" name="Transmission" required>
+            <option value="Manual">Manual</option>
+            <option value="Automatic">Automatic</option>
+        </select>
+    </div>
+    <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+    </div>
+    <div>
+        <button type="submit">Save Car</button>
+    </div>
+</form>
+</body>
+</html>

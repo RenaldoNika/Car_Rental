@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        div {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="datetime-local"],
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Rezervimi i Makinës</h1>
+<form th:action="@{/bookings/save}" method="post">
+    <input type="hidden" name="car.id" th:value="${car.id}" />
+    <input type="hidden" name="car.Model" th:value="${car.Model}" />
+    <input type="hidden" name="car.Type" th:value="${car.Type}" />
+    <input type="hidden" name="car.year" th:value="${car.year}" />
+    <input type="hidden" name="car.transmission" th:value="${car.transmission}" />
+    <input type="hidden" name="car.price" th:value="${car.price}" />
+
+    <div>
+        <label for="clientName">Emri:</label>
+        <input type="text" name="clientName" id="clientName" required />
+    </div>
+
+    <div>
+        <label for="Email">Email:</label>
+        <input type="email" name="Email" id="Email" required />
+    </div>
+
+
+    <div>
+        <label for="telefon">Telefon:</label>
+        <input type="telefon" name="telefon" id="telefon" required />
+    </div>
+
+    <div>
+        <label for="Delivery">Data dhe Ora e Dorëzimit:</label>
+        <input type="date" name="Delivery" id="Delivery" required />
+    </div>
+
+    <div>
+        <label for="Handover">Data dhe Ora e Kthimit:</label>
+        <input type="date" name="Handover" id="Handover" required />
+    </div>
+
+    <button type="submit">Perfundo</button>
+</form>
+</body>
+</html>

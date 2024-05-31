@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista e Makinave</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista e Makinave</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Model</th>
+        <th>Type</th>
+        <th>Year</th>
+        <th>Transmission</th>
+        <th>Price $</th>
+        <th>Booking</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.Model}">Model</td>
+        <td th:text="${car.Type}">Type</td>
+        <td th:text="${car.year}">Year</td>
+        <td th:text="${car.transmission}">Transmission</td>
+        <td th:text="${car.price}">Price</td>
+        <td>
+            <a th:href="@{/bookCar(carId=${car.id})}">Rezervo</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

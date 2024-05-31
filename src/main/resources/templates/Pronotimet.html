@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+</head>
+<body>
+<h1>Booking Details</h1>
+<table border="1">
+    <tr>
+        <th>Client Name</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        <th>Car</th>
+        <th>Car Price</th>
+        <th>Delivery Date</th>
+        <th>Handover Date</th>
+    </tr>
+    <tr th:each="booking : ${bookings}">
+        <td th:text="${booking.ClientName}">Client Name</td>
+        <td th:text="${booking.Email}">Email</td>
+        <td th:text="${booking.telefon}">Telefon</td>
+        <td th:text="${booking.car.Model}">Car</td>
+        <td th:text="${booking.car.price}">Car Price</td>
+        <td th:text="${booking.Delivery}">Delivery Date</td>
+        <td th:text="${booking.Handover}">Handover Date</td>
+    </tr>
+</table>
+</body>
+</html>
