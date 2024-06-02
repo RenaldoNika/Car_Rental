@@ -20,7 +20,8 @@ public class Car {
 
     Transmission transmission;
     int price;
-
+    @OneToMany()
+    List<Booking> booking;
     public Car() {
     }
 

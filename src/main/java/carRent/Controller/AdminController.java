@@ -51,7 +51,7 @@ public class AdminController {
     @PostMapping("/bookings/save")
     public String saveBooking(@ModelAttribute Booking booking) {
 
-        bookingService.Save(booking);
+        bookingService.save(booking);
         return "redirect:/makina";
     }
 
